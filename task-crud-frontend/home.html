@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD App - Home</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Floating Animation for Hero Image */
+    .hero-image img {
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Reveal Animation */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating Shapes in Background */
+    .floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      animation: moveShape 20s linear infinite;
+    }
+    .shape:nth-child(1) {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      left: 15%;
+    }
+    .shape:nth-child(2) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      right: 10%;
+    }
+    .shape:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      right: 30%;
+    }
+    @keyframes moveShape {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">CRUD<span>App</span></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <div class="hero-content" data-reveal>
+      <h1>Manage Your Data <br><span>With Ease & Style</span></h1>
+      <p>Create, read, update, and delete records with a modern, secure, and fast platform.</p>
+      <button onclick="window.location.href='crud.html'">Get Started</button>
+    </div>
+    <div class="hero-image" data-reveal>
+<img src="https://cdn-icons-png.flaticon.com/512/4230/4230569.png" alt="Data Management">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features" data-reveal>
+    <h2>Features</h2>
+    <div class="feature-container">
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828673.png" alt="Create">
+        <h3>Create Records</h3>
+        <p>Easily add new data with our user-friendly forms.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="Read">
+        <h3>Read Data</h3>
+        <p>Search and view all your data in an organized way.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="Update">
+        <h3>Update Info</h3>
+        <p>Edit existing records without hassle.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="Delete">
+        <h3>Delete Records</h3>
+        <p>Remove outdated or incorrect data securely.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-it-works" data-reveal>
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <span>1</span>
+        <p>Sign in to your account</p>
+      </div>
+      <div class="step">
+        <span>2</span>
+        <p>Manage your records easily</p>
+      </div>
+      <div class="step">
+        <span>3</span>
+        <p>Save and view changes instantly</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials" data-reveal>
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial-card">
+        <p>“This CRUD app is so easy to use and incredibly fast!”</p>
+        <h4>- Sarah W.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>“Managing my data has never been this simple and secure.”</p>
+        <h4>- James L.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>“A must-have tool for any business that deals with data.”</p>
+        <h4>- Priya K.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact/CTA -->
+  <section id="contact" class="cta" data-reveal>
+    <h2>Start Managing Your Data Today</h2>
+    <p>Sign up now and experience the power of simplicity and speed.</p>
+    <button onclick="window.location.href='crud.html'">Get Started</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 CRUD App. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal effect
+    const revealElements = document.querySelectorAll("[data-reveal]");
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("revealed");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+
+</body>
+</html>
